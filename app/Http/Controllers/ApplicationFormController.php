@@ -17,7 +17,7 @@ class ApplicationFormController extends Controller
             'last_name' => 'required',
             'category' => 'required',
             'portfolio_link' => 'required',
-            'portfolio_link_confirmed' => 'required',
+            'portfolio_link_confirmed' => '',
             'online_store' => 'required',
             'online_stores' => '',
             'answer_quality' => 'required',
