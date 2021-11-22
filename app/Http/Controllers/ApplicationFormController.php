@@ -26,7 +26,7 @@ class ApplicationFormController extends Controller
         ]);
 
         $check = \DB::table('applications')->where('portfolio_link', $request->portfolio_link)->get();
-        if ($check) {
+        if (count($check) > 0) {
             return back()->with('duplicate', 'Duplicate');
         } else {
             Application::create($request->all());
