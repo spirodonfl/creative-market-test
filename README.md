@@ -12,6 +12,8 @@ Then I ran: `./vendor/bin/sail php artisan make:controller ApplicationFormContro
 
 I then setup the form view, validations and submission criteria along with any routes and additional CSS I needed.
 
+To run this locally, run `./vendor/bin/sail migrate` and then `./vendor/bin/sail up`
+
 ## Things I did not do
 
 1. Implement the background asset, proper colors, envelope at the end and *full scale* responsive design. However, with a bit more time, Tailwind + the assets would make it easy to resolve these
