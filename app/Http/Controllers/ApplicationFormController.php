@@ -25,8 +25,12 @@ class ApplicationFormController extends Controller
             'answer_understanding' => 'required',
         ]);
 
-        Application::create($request->all());
-
-        return back()->with('success', 'Thank you!');
+        $check = \DB::table('applications')->where('portfolio_link', $request->portfolio_link)->get();
+        if ($check) {
+            return back()->with('duplicate', 'Duplicate');
+        } else {
+            Application::create($request->all());
+            return back()->with('success', 'Thank you!');
+        }
     }
 }

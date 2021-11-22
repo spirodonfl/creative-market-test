@@ -50,8 +50,18 @@
             evt.preventDefault();
             evt.stopPropagation();
 
-            CM.hideStepOne();
-            CM.showStepTwo();
+            if (
+                document.getElementById('first_name').value === '' ||
+                document.getElementById('last_name').value === '' ||
+                document.getElementById('category').value === '' ||
+                document.getElementById('portfolio_link').value === '' ||
+                (!document.getElementById('online_store_yes').checked && !document.getElementById('online_store_no').checked)
+            ) {
+                document.getElementById('the_form').submit();
+            } else {
+                CM.hideStepOne();
+                CM.showStepTwo();
+            }
 
             return false;
         });
@@ -112,7 +122,7 @@
     </div>
 
     <div class="mx-4 md:container md:mx-auto p-4 border-2 border-solid border-gray-400 rounded">
-        <div id="success w-full">
+        <div id="success">
         <!-- Success message -->
         @if(Session::has('success'))
             <script type="text/javascript">
@@ -127,7 +137,7 @@
         @endif
         </div>
 
-        <form action="" method="post" action="{{ route('application.store') }}">
+        <form id="the_form" action="" method="post" action="{{ route('application.store') }}">
 
             <!-- CROSS Site Request Forgery Protection -->
             @csrf
@@ -142,6 +152,10 @@
                 <div class="w-full font-bold text-lg mb-4">Share your work with us</div>
 
                 <div class="w-full mb-4">To ensure the quality of our marketplace, we limit our seller community to the most qualified creators. Let our curators know why you'd be a great seller.</div>
+
+                @if(Session::has('duplicate'))
+                    <div class="w-full text-red-500 font-bold mb-4">The portfolio link you entered has already been submitted</div>
+                @endif
 
                 <div class="flex mb-4">
                     <div class="form-group w-1/2 mr-4">
@@ -192,7 +206,7 @@
 
                 <div class="form-group mb-4">
                     <label class="w-full">Portfolio Link</label>
-                    <textarea class="form-control w-full p-2 border-2 border-solid border-gray-400 rounded" name="portfolio_link" id="portfolio_link">{{ old('portfolio_link') }}</textarea>
+                    <input class="form-control w-full p-2 border-2 border-solid border-gray-400 rounded" name="portfolio_link" id="portfolio_link" value="{{ old('portfolio_link') }}">
 
                     <!-- Error -->
                     @if ($errors->has('portfolio_link'))

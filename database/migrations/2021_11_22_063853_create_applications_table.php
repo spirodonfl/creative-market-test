@@ -18,10 +18,10 @@ class CreateApplicationsTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('category');
-            $table->string('portfolio_link');
-            $table->string('portfolio_link_confirmed');
+            $table->string('portfolio_link')->unique();
+            $table->string('portfolio_link_confirmed')->nullable();
             $table->boolean('online_store');
-            $table->text('online_stores');
+            $table->text('online_stores')->nullable();
             $table->string('answer_quality');
             $table->string('answer_experience');
             $table->string('answer_understanding');
