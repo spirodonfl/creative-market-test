@@ -1,6 +1,18 @@
 ## Installation
 
-First I ran: `curl -s "https://laravel.build/example-app?with=mysql" | bash`
+First I ran: `curl -s "https://laravel.build/example-app?with=mysql" | bash` and then `./vendor/bin/sail up` to get everything installed and ready.
+
+I ran: `./vendor/bin/sail php artisan make:model Application -m` to create the application model for storing submissions.
+
+I filled out the models. You can find the specific model created by going to `database/migrations/2021_11_22_064853_create_applications_table.php` which gives you the schema too.
+
+I ran: `./vendbor/bin/sail php artisan migrate` to populate the database as appropriate.
+
+Then I ran: `./vendor/bin/sail php artisan make:controller ApplicationFormController` to make our controller to house our form.
+
+I then setup the form view, validations and submission criteria along with any routes and additional CSS I needed.
+
+---
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
