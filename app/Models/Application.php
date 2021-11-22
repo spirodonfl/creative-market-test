@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Application extends Model
 {
     use HasFactory;
-    public $fillable = ['first_name', 'last_name', 'category', 'portfolio_link', 'online_store', 'online_stores', 'answer_quality', 'answer_experience', 'answer_understanding'];
+    public $fillable = ['first_name', 'last_name', 'category', 'portfolio_link', 'portfolio_link_confirmed', 'online_store', 'online_stores', 'answer_quality', 'answer_experience', 'answer_understanding'];
 }
