@@ -24,3 +24,4 @@ To run this locally, run `./vendor/bin/sail migrate` and then `./vendor/bin/sail
 6. When you've entered a portfolio link, you are presented with the confirmation checkbox, but it is not validated. That should be validated so you check it
 7. When you've entered online stores, that textarea is not valided. It should be validated for values
 8. Most of the fields could use better validation methods. Regex, email, strings, etc... should be applied at the JS and Laravel methods
+9. Some minor tweaks can be made to the responsive design to account for things like text overflows and other minor issues
